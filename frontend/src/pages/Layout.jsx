@@ -1,11 +1,16 @@
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
+import logo from '../assets/img/logo.png';
 
 function Header() {
   return (
     <header className="header">
       <nav className="header-nav">
         <ul>
+          <li className="header-nav__logo">
+            <img src={logo} alt="logo" />
+            SportSee
+          </li>
           <li>
             <Link to="/">Accueil</Link>
           </li>
