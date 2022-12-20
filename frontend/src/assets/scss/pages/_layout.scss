@@ -1,0 +1,69 @@
+/*====================== layouts ======================*/
+/*====== header ======*/
+.header {
+  color: #fff;
+  background-color: $black;
+  height: $header-height;
+  nav,
+  ul {
+    height: 100%;
+  }
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  li {
+    list-style: none;
+    font-size: 24px;
+  }
+  &-nav__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #e60000;
+  }
+}
+/*====== outlet ======*/
+.outlet {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  main {
+    width: 100%;
+  }
+}
+/*====== footer ======*/
+.footer {
+  background-color: $black;
+  min-height: calc(100vh - $header-height);
+  width: 117px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  ul {
+    display: grid;
+    gap: 20px;
+  }
+  li {
+    list-style: none;
+  }
+  p {
+    color: #fff;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    transform: rotate(-90deg);
+    width: max-content;
+    margin-top: 300px;
+  }
+}
