@@ -9,12 +9,12 @@ import iconBodybuilding from '../assets/icon/bodybuilding.svg';
 function Header() {
   return (
     <header className="header">
-      <nav className="header-nav">
+      <div className="header-logo">
+        <img src={logo} alt="logo" />
+        SportSee
+      </div>
+      <nav>
         <ul>
-          <li className="header-nav__logo">
-            <img src={logo} alt="logo" />
-            SportSee
-          </li>
           <li>
             <Link to="/">Accueil</Link>
           </li>
