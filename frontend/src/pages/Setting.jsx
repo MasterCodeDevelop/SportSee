@@ -1,5 +1,10 @@
 import React from 'react';
+import DuringManufacture from './DuringManufacture';
 
 export default function Setting() {
-  return <main>Setting</main>;
+  return (
+    <main>
+      <DuringManufacture page="Setting" message="Page de de réglage" />
+    </main>
+  );
 }

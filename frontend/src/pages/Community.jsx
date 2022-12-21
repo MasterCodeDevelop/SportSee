@@ -1,5 +1,10 @@
 import React from 'react';
+import DuringManufacture from './DuringManufacture';
 
 export default function Community() {
-  return <main>Community</main>;
+  return (
+    <main>
+      <DuringManufacture page="Community" message="Page de Communauté" />
+    </main>
+  );
 }
