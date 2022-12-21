@@ -7,6 +7,7 @@ import Profile from '../pages/Profile';
 import Setting from '../pages/Setting';
 import Community from '../pages/Community';
 import Error from '../pages/Error';
+import '../api/mock/index';
 
 export default function Router() {
   return (
