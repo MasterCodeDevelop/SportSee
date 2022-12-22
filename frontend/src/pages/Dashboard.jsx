@@ -38,7 +38,7 @@ export default function Dashboard() {
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
       <Activity userActivity={userActivity} />
-      <Sessions userId={userId} />
+      <Sessions userSessions={userSessions} />
     </main>
   );
 }

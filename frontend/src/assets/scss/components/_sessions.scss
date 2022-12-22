@@ -1,0 +1,32 @@
+/*====================== sessions ======================*/
+.sessions {
+  position: relative;
+  width: resWidth(258);
+  height: resWidth(263);
+  border-radius: resWidth(5);
+  color: rgba(#fff, 0.5);
+  background-color: #ff0000;
+  &-header {
+    h2 {
+      position: absolute;
+      font-weight: 500;
+      font-size: resWidth(17);
+      top: 10%;
+      left: 12%;
+      max-width: resWidth(150);
+    }
+  }
+  .recharts-cartesian-axis-ticks text {
+    fill: rgba(#fff, 0.5);
+    font-weight: 500;
+  }
+  .custom-tooltip {
+    color: #000;
+    background-color: #fff;
+    padding: resWidth(7);
+
+    p {
+      font-size: resWidth(10);
+    }
+  }
+}
