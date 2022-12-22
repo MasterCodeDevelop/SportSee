@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
-import { getUserActivity } from '../functions/get';
-import Loading from './Loading';
+import React from 'react';
 import {
   BarChart,
   Bar,
@@ -12,11 +10,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
-export default function Activity({ userId }) {
-  const [userActivity, setUserActivity] = useState(null);
-  useEffect(() => {
-    if (userActivity === null) getUserActivity({ userId, setUserActivity });
-  }, [userActivity]);
+export default function Activity({ userActivity }) {
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
@@ -74,22 +68,16 @@ export default function Activity({ userId }) {
   };
   return (
     <section className="activity">
-      {userActivity === null ? (
-        <Loading />
-      ) : (
-        <>
-          <div className="activity-header">
-            <h2>Activité quotidienne</h2>
-            <div>
-              <p>Poid (kg)</p>
-              <p>Calories brûlées (kCal)</p>
-            </div>
-          </div>
-          <div className="activity-graph">
-            <Graph />
-          </div>
-        </>
-      )}
+      <div className="activity-header">
+        <h2>Activité quotidienne</h2>
+        <div>
+          <p>Poid (kg)</p>
+          <p>Calories brûlées (kCal)</p>
+        </div>
+      </div>
+      <div className="activity-graph">
+        <Graph />
+      </div>
     </section>
   );
 }
