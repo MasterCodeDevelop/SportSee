@@ -23,7 +23,7 @@ export function getUser({ userId, setUser }) {
  */
 export function getUserActivity({ userId, setUserActivity }) {
   axios(`/api/${userId}/activity/`)
-    .then((res) => setUserActivity(res.data.data))
+    .then((res) => setUserActivity(res.data.data.sessions))
     .catch((err) => {
       console.log(err);
       setUserActivity(undefined);
