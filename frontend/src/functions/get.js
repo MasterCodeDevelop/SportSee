@@ -23,7 +23,12 @@ export function getUser({ userId, setUser }) {
  */
 export function getUserActivity({ userId, setUserActivity }) {
   axios(`/api/${userId}/activity/`)
-    .then((res) => setUserActivity(res.data.data.sessions))
+    .then((res) => {
+      const sessions = res.data.data.sessions;
+      setUserActivity(
+        sessions.map((e) => ({ ...e, day: new Date(e.day).getDate() }))
+      );
+    })
     .catch((err) => {
       console.log(err);
       setUserActivity(undefined);

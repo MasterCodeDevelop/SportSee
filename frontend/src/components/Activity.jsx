@@ -14,6 +14,9 @@ import {
 
 export default function Activity({ userId }) {
   const [userActivity, setUserActivity] = useState(null);
+  useEffect(() => {
+    if (userActivity === null) getUserActivity({ userId, setUserActivity });
+  }, [userActivity]);
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
@@ -31,10 +34,44 @@ export default function Activity({ userId }) {
     }
     return null;
   };
-  useEffect(() => {
-    if (userActivity === null) getUserActivity({ userId, setUserActivity });
-  }, [userActivity]);
-
+  const Graph = () => {
+    return (
+      <ResponsiveContainer>
+        <BarChart data={userActivity} barGap={8} barSize={7}>
+          <XAxis
+            dataKey="day"
+            axisLine={false}
+            tickLine={false}
+            tickMargin={15}
+          />
+          <YAxis
+            dataKey="kilogram"
+            yAxisId="right"
+            orientation="right"
+            domain={['dataMin - 2', 'dataMax + 2']}
+            axisLine={false}
+            tickLine={false}
+            tickMargin={15}
+          />
+          <YAxis dataKey="calories" yAxisId="left" hide={true} />
+          <Tooltip content={<CustomTooltip />} />
+          <CartesianGrid vertical={false} strokeDasharray="2" />
+          <Bar
+            className="bar bar-left"
+            yAxisId="right"
+            dataKey="kilogram"
+            radius={[5, 5, 0, 0]}
+          />
+          <Bar
+            className="bar bar-right"
+            yAxisId="left"
+            dataKey="calories"
+            radius={[5, 5, 0, 0]}
+          />
+        </BarChart>
+      </ResponsiveContainer>
+    );
+  };
   return (
     <section className="activity">
       {userActivity === null ? (
@@ -48,40 +85,9 @@ export default function Activity({ userId }) {
               <p>Calories brûlées (kCal)</p>
             </div>
           </div>
-          <ResponsiveContainer width="100%" height="60%">
-            <BarChart data={userActivity} barGap={8} barSize={7}>
-              <XAxis
-                dataKey="day"
-                axisLine={false}
-                tickLine={false}
-                tickMargin={15}
-              />
-              <YAxis
-                dataKey="kilogram"
-                yAxisId="right"
-                orientation="right"
-                domain={['dataMin - 2', 'dataMax + 2']}
-                axisLine={false}
-                tickLine={false}
-                tickMargin={15}
-              />
-              <YAxis dataKey="calories" yAxisId="left" hide={true} />
-              <Tooltip content={<CustomTooltip />} />
-              <CartesianGrid vertical={false} strokeDasharray="2" />
-              <Bar
-                yAxisId="right"
-                dataKey="kilogram"
-                fill={'#282D30'}
-                radius={[5, 5, 0, 0]}
-              />
-              <Bar
-                yAxisId="left"
-                dataKey="calories"
-                fill={'#E60000'}
-                radius={[5, 5, 0, 0]}
-              />
-            </BarChart>
-          </ResponsiveContainer>
+          <div className="activity-graph">
+            <Graph />
+          </div>
         </>
       )}
     </section>

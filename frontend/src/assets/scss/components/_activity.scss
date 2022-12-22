@@ -2,6 +2,15 @@
 .activity {
   background-color: #fbfbfb;
   flex-direction: column;
+  width: resWidth(835);
+  height: resWidth(320);
+  div,
+  h2,
+  p {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+  }
   &,
   &-header div {
     display: flex;
@@ -14,23 +23,76 @@
     align-items: center;
     justify-content: space-between;
     padding: 24px 32px;
-    div {
-      gap: 32px;
+    h2 {
+      color: #20253a;
+      font-size: 15px;
     }
+    div {
+      gap: resWidth(52);
+    }
+    p {
+      position: relative;
+      line-height: resWidth(24);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &::after {
+        content: '';
+        top: resWidth(8);
+        left: -12.5px;
+        width: resWidth(8);
+        height: resWidth(8);
+        border-radius: 50%;
+        position: absolute;
+      }
+      &:nth-child(1)::after {
+        background-color: #282d30;
+      }
+      &:nth-child(2)::after {
+        background-color: #e60000;
+      }
+    }
+  }
+  &-graph {
+    width: 100%;
+    height: resWidth(272);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 34px 29px 23px 43px;
   }
   &-tooltip {
     background-color: #e60000;
+    border: none;
     padding: 12px;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 31.5px;
+    left: 31.5px;
     gap: 20px;
-
+    width: resWidth(45);
+    height: resWidth(80);
     p {
-      font-size: 12px;
+      font-size: resWidth(10);
       font-weight: 500;
+    }
+  }
+  .bar-left {
+    fill: #282d30;
+  }
+  .bar-right {
+    fill: #e60000;
+  }
+  .recharts-cartesian-axis-tick text {
+    fill: #9b9eac;
+  }
+  .recharts-cartesian-grid-horizontal {
+    line {
+      stroke: #dedede;
+      &:first-child {
+        stroke-dasharray: none;
+      }
     }
   }
 }

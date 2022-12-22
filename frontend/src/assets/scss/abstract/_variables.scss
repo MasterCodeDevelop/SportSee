@@ -2,6 +2,8 @@
 :root {
   --clr-black: #020203;
   --header-height: 91px;
+  --res-width: calc(100vw / 1440);
 }
 $black: var(--clr-black);
 $header-height: var(--header-height);
+$res-width: var(--res-width);
