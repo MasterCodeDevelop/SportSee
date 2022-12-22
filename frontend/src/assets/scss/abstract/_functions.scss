@@ -1,0 +1,4 @@
+//====================== functions ======================//
+@function resWidth($width) {
+  @return calc($res-width * $width);
+}

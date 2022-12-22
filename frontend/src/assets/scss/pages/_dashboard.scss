@@ -1,0 +1,22 @@
+/*====================== dashboard ======================*/
+.dashboard {
+  display: grid;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  padding: 68px 90px 88px 109px;
+  gap: 30px;
+  &-header {
+    height: min-content;
+    h1 {
+      width: 100%;
+      font-size: 48px;
+      span {
+        color: #ff0101;
+      }
+    }
+    p {
+      padding: 41px 0 47px 0;
+    }
+  }
+}

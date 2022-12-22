@@ -1,5 +1,6 @@
 //|||||||||||||||||||||| ABSTRACT ||||||||||||||||||||||*/
 @import './abstract/variables';
+@import './abstract/functions';
 
 /*|||||||||||||||||||||| BASE ||||||||||||||||||||||*/
 @import './base/typography';
@@ -8,3 +9,7 @@
 /*|||||||||||||||||||||| PAGES ||||||||||||||||||||||*/
 @import './pages/layout';
 @import './pages/error';
+@import './pages/dashboard';
+
+/*|||||||||||||||||||||| COMPONENTS ||||||||||||||||||||||*/
+@import './components/activity';
