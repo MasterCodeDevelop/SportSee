@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   BarChart,
   Bar,
@@ -9,24 +10,30 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
+CustomTooltip.propTypes = {
+  active: PropTypes.object,
+  payload: PropTypes.object,
+};
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="activity-tooltip">
+        <p>
+          {payload[0].value + (payload[0].name === 'kilogram' ? 'kg' : 'kCal')}
+        </p>
+        <p>
+          {payload[1].value + (payload[1].name === 'kilogram' ? 'kg' : 'kCal')}
+        </p>
+      </div>
+    );
+  }
+  return null;
+};
+
+Activity.propTypes = {
+  userActivity: PropTypes.string,
+};
 export default function Activity({ userActivity }) {
-  const CustomTooltip = ({ active, payload }) => {
-    if (active && payload && payload.length) {
-      return (
-        <div className="activity-tooltip">
-          <p>
-            {payload[0].value +
-              (payload[0].name === 'kilogram' ? 'kg' : 'kCal')}
-          </p>
-          <p>
-            {payload[1].value +
-              (payload[1].name === 'kilogram' ? 'kg' : 'kCal')}
-          </p>
-        </div>
-      );
-    }
-    return null;
-  };
   const Graph = () => {
     return (
       <ResponsiveContainer>
