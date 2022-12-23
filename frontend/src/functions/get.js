@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { formatDay } from './format';
 /**
  * Get general user information
  * @param { String } userId
@@ -57,7 +57,10 @@ export function getUserPerformance({ userId, setUserPerformance }) {
  */
 export function getUserSessions({ userId, setUserSessions }) {
   axios(`/api/${userId}/average-sessions/`)
-    .then((res) => setUserSessions(res.data.data.sessions))
+    .then((res) => {
+      const sessions = res.data.data.sessions;
+      setUserSessions(sessions.map((e) => ({ ...e, day: formatDay(e.day) })));
+    })
     .catch((err) => {
       console.log(err);
       setUserSessions(undefined);
