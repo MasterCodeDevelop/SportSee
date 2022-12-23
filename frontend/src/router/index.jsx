@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from '../pages/Layout';
 import Home from '../pages/Home';
 import Dashboard from '../pages/Dashboard';
-import Profile from '../pages/Profile';
 import Setting from '../pages/Setting';
 import Community from '../pages/Community';
 import Error from '../pages/Error';
@@ -15,8 +14,7 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/dashboard/:id" element={<Dashboard />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Dashboard />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/community" element={<Community />} />
           <Route path="*" element={<Error />} />
