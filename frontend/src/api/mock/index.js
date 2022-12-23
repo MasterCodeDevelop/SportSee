@@ -7,13 +7,17 @@ import { createServer, Response } from 'miragejs';
  * @param { String ('user' | 'activity' | 'performance' | 'average-sessions') } path allows to see the path of JSON files
  * @returns { JSON } the response from the API
  */
-function get({request}, path) {
+function get({ request }, path) {
   let userID = request.params.id;
-  if( userID==12 || userID==18 ) {
+  if (userID == 12 || userID == 18) {
     let json = require(`../data/${userID}/${path}.json`);
     return json;
   } else {
-    return new Response(402, { some: 'header' }, { errors: [ 'can not get user'] });
+    return new Response(
+      402,
+      { some: 'header' },
+      { errors: ['can not get user'] }
+    );
   }
 }
 /**
@@ -23,9 +27,17 @@ function get({request}, path) {
 createServer({
   routes() {
     this.namespace = 'api';
-    this.get('/:id/', (schema, request) => get({request}, 'user'));
-    this.get('/:id/activity/', (schema, request) => get({request}, 'activity'));
-    this.get('/:id/average-sessions/', (schema, request) => get({request}, 'average-sessions'));
-    this.get('/:id/performance/', (schema, request) => get({request}, 'performance'));
-  }
+    this.timing = 3000; // default
+    this.logging = false;
+    this.get('/:id/', (schema, request) => get({ request }, 'user'));
+    this.get('/:id/activity/', (schema, request) =>
+      get({ request }, 'activity')
+    );
+    this.get('/:id/average-sessions/', (schema, request) =>
+      get({ request }, 'average-sessions')
+    );
+    this.get('/:id/performance/', (schema, request) =>
+      get({ request }, 'performance')
+    );
+  },
 });
