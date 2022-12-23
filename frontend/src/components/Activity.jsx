@@ -10,10 +10,6 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
-CustomTooltip.propTypes = {
-  active: PropTypes.object,
-  payload: PropTypes.object,
-};
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
@@ -29,49 +25,52 @@ const CustomTooltip = ({ active, payload }) => {
   }
   return null;
 };
-
-Activity.propTypes = {
-  userActivity: PropTypes.string,
+CustomTooltip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
 };
-export default function Activity({ userActivity }) {
-  const Graph = () => {
-    return (
-      <ResponsiveContainer>
-        <BarChart data={userActivity} barGap={8} barSize={7}>
-          <XAxis
-            dataKey="day"
-            axisLine={false}
-            tickLine={false}
-            tickMargin={15}
-          />
-          <YAxis
-            dataKey="kilogram"
-            yAxisId="right"
-            orientation="right"
-            domain={['dataMin - 2', 'dataMax + 2']}
-            axisLine={false}
-            tickLine={false}
-            tickMargin={15}
-          />
-          <YAxis dataKey="calories" yAxisId="left" hide={true} />
-          <Tooltip content={<CustomTooltip />} />
-          <CartesianGrid vertical={false} strokeDasharray="2" />
-          <Bar
-            className="bar bar-left"
-            yAxisId="right"
-            dataKey="kilogram"
-            radius={[5, 5, 0, 0]}
-          />
-          <Bar
-            className="bar bar-right"
-            yAxisId="left"
-            dataKey="calories"
-            radius={[5, 5, 0, 0]}
-          />
-        </BarChart>
-      </ResponsiveContainer>
-    );
-  };
+
+const Graph = ({ userActivity }) => {
+  return (
+    <ResponsiveContainer>
+      <BarChart data={userActivity} barGap={8} barSize={7}>
+        <XAxis
+          dataKey="day"
+          axisLine={false}
+          tickLine={false}
+          tickMargin={15}
+        />
+        <YAxis
+          dataKey="kilogram"
+          yAxisId="right"
+          orientation="right"
+          domain={['dataMin - 2', 'dataMax + 2']}
+          axisLine={false}
+          tickLine={false}
+          tickMargin={15}
+        />
+        <YAxis dataKey="calories" yAxisId="left" hide={true} />
+        <Tooltip content={<CustomTooltip />} />
+        <CartesianGrid vertical={false} strokeDasharray="2" />
+        <Bar
+          className="bar bar-left"
+          yAxisId="right"
+          dataKey="kilogram"
+          radius={[5, 5, 0, 0]}
+        />
+        <Bar
+          className="bar bar-right"
+          yAxisId="left"
+          dataKey="calories"
+          radius={[5, 5, 0, 0]}
+        />
+      </BarChart>
+    </ResponsiveContainer>
+  );
+};
+Graph.propTypes = { userActivity: PropTypes.array };
+
+function Activity({ userActivity }) {
   return (
     <section className="activity">
       <div className="activity-header">
@@ -82,8 +81,11 @@ export default function Activity({ userActivity }) {
         </div>
       </div>
       <div className="activity-graph">
-        <Graph />
+        <Graph userActivity={userActivity} />
       </div>
     </section>
   );
 }
+Activity.propTypes = { userActivity: PropTypes.array };
+
+export default Activity;

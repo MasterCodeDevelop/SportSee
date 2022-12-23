@@ -8,18 +8,23 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
+import PropTypes from 'prop-types';
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip">
-        <p className>{payload[0].value + ' min'}</p>
+        <p>{payload[0].value + ' min'}</p>
       </div>
     );
   }
-
   return null;
 };
+CustomTooltip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
+};
+
 const CustomizedCursor = ({ width, points }) => {
   return (
     <Rectangle
@@ -30,6 +35,11 @@ const CustomizedCursor = ({ width, points }) => {
     />
   );
 };
+CustomizedCursor.propTypes = {
+  width: PropTypes.number,
+  points: PropTypes.array,
+};
+
 const Graph = ({ userSessions }) => {
   return (
     <ResponsiveContainer width="100%" height="100%">
@@ -73,7 +83,9 @@ const Graph = ({ userSessions }) => {
     </ResponsiveContainer>
   );
 };
-export default function Sessions({ userSessions }) {
+Graph.propTypes = { userSessions: PropTypes.array };
+
+function Sessions({ userSessions }) {
   return (
     <section className="sessions">
       <div className="sessions-header">
@@ -83,3 +95,6 @@ export default function Sessions({ userSessions }) {
     </section>
   );
 }
+Sessions.propTypes = { userSessions: PropTypes.array };
+
+export default Sessions;

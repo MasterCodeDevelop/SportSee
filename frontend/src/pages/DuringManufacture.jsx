@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export default function DuringManufacture({ page, message }) {
+function DuringManufacture({ page, message }) {
   return (
     <main className="error-page">
       <h1>{page}</h1>
@@ -10,3 +11,9 @@ export default function DuringManufacture({ page, message }) {
     </main>
   );
 }
+DuringManufacture.propTypes = {
+  page: PropTypes.string,
+  message: PropTypes.string,
+};
+
+export default DuringManufacture;

@@ -9,10 +9,7 @@ import {
 } from 'recharts';
 import PropTypes from 'prop-types';
 
-Performance.propTypes = {
-  userPerformance: PropTypes.object,
-};
-export default function Performance({ userPerformance }) {
+function Performance({ userPerformance }) {
   return (
     <section className="performance">
       <ResponsiveContainer width="100%" height="100%">
@@ -26,3 +23,6 @@ export default function Performance({ userPerformance }) {
     </section>
   );
 }
+Performance.propTypes = { userPerformance: PropTypes.object };
+
+export default Performance;
