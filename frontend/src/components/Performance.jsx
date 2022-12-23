@@ -7,7 +7,11 @@ import {
   PolarRadiusAxis,
   ResponsiveContainer,
 } from 'recharts';
+import PropTypes from 'prop-types';
 
+Performance.propTypes = {
+  userPerformance: PropTypes.object,
+};
 export default function Performance({ userPerformance }) {
   return (
     <section className="performance">
