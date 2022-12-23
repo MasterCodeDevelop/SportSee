@@ -1,0 +1,20 @@
+/*====================== performance ======================*/
+.performance {
+  overflow: hidden;
+  background-color: #282d30;
+  width: 200px;
+  height: 200px;
+  padding: 13px;
+  border-radius: 5px;
+
+  .recharts-polar {
+    &-grid-angle {
+      display: none;
+    }
+    &-angle-axis-tick text {
+      font-size: 12px;
+      font-weight: 500;
+      fill: white;
+    }
+  }
+}
