@@ -9,6 +9,7 @@ import Activity from '../components/Activity';
 import Loading from '../components/Loading';
 import Sessions from '../components/Sessions';
 import Performance from '../components/Performance';
+import Score from '../components/Score';
 
 export default function Dashboard() {
   const userId = '12',
@@ -41,6 +42,7 @@ export default function Dashboard() {
       <Activity userActivity={userActivity} />
       <Sessions userSessions={userSessions} />
       <Performance userPerformance={userPerformance} />
+      <Score score={user.todayScore || user.score} />
     </main>
   );
 }
