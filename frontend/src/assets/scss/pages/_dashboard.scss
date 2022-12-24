@@ -1,15 +1,16 @@
 /*====================== dashboard ======================*/
 .dashboard {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  position: relative;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  padding: 68px 90px 88px 109px;
-  gap: 30px;
+  padding: resWidth(69) resWidth(90) resWidth(88) resWidth(109);
+  gap: resWidth(30);
+
   &-header {
-    height: min-content;
     h1 {
-      width: 100%;
       font-size: 48px;
       span {
         color: #ff0101;
@@ -24,6 +25,41 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 613px;
+  }
+
+  .sessions,
+  .performance,
+  .score {
+    width: resWidth(258);
+    height: resWidth(263);
+  }
+  &-container {
+    display: flex;
+    width: 100%;
+    & div:first-child {
+      display: flex;
+      flex-wrap: wrap;
+      gap: resWidth(30);
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .dashboard {
+    &-info {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    &-container {
+      flex-direction: column-reverse;
+      & div:first-child {
+        gap: 10%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 425px) {
+  .dashboard {
+    padding: resWidth(35) resWidth(45) resWidth(44) resWidth(55);
   }
 }

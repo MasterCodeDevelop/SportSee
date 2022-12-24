@@ -47,11 +47,15 @@ export default function Dashboard() {
         </h1>
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
-      <Activity userActivity={userActivity} />
-      <Sessions userSessions={userSessions} />
-      <Performance userPerformance={userPerformance} />
-      <Score score={user.todayScore || user.score} />
-      <DashboardInfo keyData={user.keyData} />
+      <div className="dashboard-container">
+        <div>
+          <Activity userActivity={userActivity} />
+          <Sessions userSessions={userSessions} />
+          <Performance userPerformance={userPerformance} />
+          <Score score={user.todayScore || user.score} />
+        </div>
+        <DashboardInfo keyData={user.keyData} />
+      </div>
       <ChangeUser
         userId={userId}
         setUserId={setUserId}
