@@ -24,11 +24,11 @@ function ChangeUser({
 }
 ChangeUser.propTypes = {
   userId: PropTypes.number,
-  setUserId: PropTypes.function,
-  setUser: PropTypes.function,
-  setUserPerformance: PropTypes.function,
-  setUserSessions: PropTypes.function,
-  setUserActivity: PropTypes.function,
+  setUserId: PropTypes.func,
+  setUser: PropTypes.func,
+  setUserPerformance: PropTypes.func,
+  setUserSessions: PropTypes.func,
+  setUserActivity: PropTypes.func,
 };
 
 export default ChangeUser;
