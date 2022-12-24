@@ -12,7 +12,7 @@ export function getUser({ userId, setUser }) {
     .then((res) => setUser(res.data.data))
     .catch((err) => {
       console.log(err);
-      setUser(undefined);
+      setUser(false);
     });
 }
 
@@ -32,7 +32,7 @@ export function getUserActivity({ userId, setUserActivity }) {
     })
     .catch((err) => {
       console.log(err);
-      setUserActivity(undefined);
+      setUserActivity(false);
     });
 }
 
@@ -47,7 +47,7 @@ export function getUserPerformance({ userId, setUserPerformance }) {
     .then((res) => setUserPerformance(res.data.data))
     .catch((err) => {
       console.log(err);
-      setUserPerformance(undefined);
+      setUserPerformance(false);
     });
 }
 /**
@@ -64,6 +64,6 @@ export function getUserSessions({ userId, setUserSessions }) {
     })
     .catch((err) => {
       console.log(err);
-      setUserSessions(undefined);
+      setUserSessions(false);
     });
 }
