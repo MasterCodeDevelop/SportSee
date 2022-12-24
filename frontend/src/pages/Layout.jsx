@@ -58,8 +58,8 @@ function Footer() {
             </a>
           </li>
         </ul>
-        <p>Copiryght, SportSee 2020</p>
       </nav>
+      <p>Copiryght, SportSee 2020</p>
     </footer>
   );
 }

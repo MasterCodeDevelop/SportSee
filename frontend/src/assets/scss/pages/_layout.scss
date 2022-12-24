@@ -3,9 +3,12 @@
 .header {
   color: #fff;
   background-color: $black;
-  height: $header-height;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: resWidth(91);
 
+  padding: 0 resWidth(30) 0 resWidth(10);
   nav,
   ul {
     height: 100%;
@@ -15,36 +18,44 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 87px;
+    //padding: 0 resWidth(87);
   }
   li {
     list-style: none;
-    font-size: 24px;
+    font-size: resWidth(24);
   }
   &-logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: resWidth(10);
     color: #e60000;
-    width: 268px;
-    font-size: 24px;
-    padding-left: 28px;
+    width: resWidth(268);
+    height: resWidth(50);
+    font-size: resWidth(24);
+    padding-left: resWidth(28);
+    & img {
+      height: 100%;
+    }
   }
 }
 /*====== outlet ======*/
 .outlet {
+  position: relative;
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
+  height: calc(100vh - resWidth(91));
   main {
     width: 100%;
+    overflow-y: scroll;
   }
 }
 /*====== footer ======*/
 .footer {
+  position: relative;
   background-color: $black;
-  min-height: calc(100vh - $header-height);
-  width: 117px;
+  height: calc(100vh - resWidth(91));
+  width: resWidth(117);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,19 +68,32 @@
   }
   ul {
     display: grid;
-    gap: 20px;
+    gap: resWidth(20);
+    padding-bottom: resWidth(60);
   }
   li {
     list-style: none;
   }
+  li img {
+    width: resWidth(64);
+    height: resWidth(64);
+  }
   p {
+    position: absolute;
+    bottom: resWidth(91);
     color: #fff;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
-    font-size: 12px;
+    font-size: resWidth(12);
     transform: rotate(-90deg);
     width: max-content;
-    margin-top: 300px;
+    margin-top: resWidth(300);
+  }
+}
+
+@media (orientation: landscape) and (max-height: 91.5vw) {
+  .footer {
+    height: resWidth(933);
   }
 }

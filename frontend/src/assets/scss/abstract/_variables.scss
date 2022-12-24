@@ -1,9 +1,30 @@
 /*====================== variables ======================*/
 :root {
   --clr-black: #020203;
-  --header-height: 91px;
-  --res-width: calc(100vw / 1440);
+  --width-screen: 1440;
+  --res-width: calc(100vw / var(--width-screen));
 }
 $black: var(--clr-black);
 $header-height: var(--header-height);
 $res-width: var(--res-width);
+
+@media screen and (max-width: 1000px) {
+  :root {
+    --width-screen: 1000;
+  }
+}
+@media screen and (max-width: 700px) {
+  :root {
+    --width-screen: 900;
+  }
+}
+@media screen and (max-width: 500px) {
+  :root {
+    --width-screen: 800;
+  }
+}
+@media screen and (max-width: 500px) {
+  :root {
+    --width-screen: 750;
+  }
+}
