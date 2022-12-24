@@ -12,6 +12,8 @@ import Performance from '../components/Performance';
 import Score from '../components/Score';
 import DashboardInfo from '../components/DashboardInfo';
 import ChangeUser from '../components/ChangeUser';
+import Error from './Error';
+
 export default function Dashboard() {
   const [userId, setUserId] = useState(12),
     [user, setUser] = useState(null),
@@ -32,6 +34,11 @@ export default function Dashboard() {
     userSessions == null ||
     userActivity == null ? (
     <Loading />
+  ) : user === false ||
+    userPerformance === false ||
+    userSessions === false ||
+    userActivity === false ? (
+    <Error />
   ) : (
     <main className="dashboard">
       <div className="dashboard-header">

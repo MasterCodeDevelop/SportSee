@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 import { createServer, Response } from 'miragejs';
-
 /**
  *  Get general information for a specific user
  * @param { any } request  allows to retrieve the userID
@@ -21,23 +20,34 @@ function get({ request }, path) {
   }
 }
 /**
+ * Server (miragejs)
  * We can mock it out using the routes() hook.
  * This function allows you to create the server that will launch the API in the APP
  */
-createServer({
-  routes() {
-    this.namespace = 'api';
-    this.timing = 3000;
-    this.logging = false;
-    this.get('/:id/', (schema, request) => get({ request }, 'user'));
-    this.get('/:id/activity/', (schema, request) =>
-      get({ request }, 'activity')
-    );
-    this.get('/:id/average-sessions/', (schema, request) =>
-      get({ request }, 'average-sessions')
-    );
-    this.get('/:id/performance/', (schema, request) =>
-      get({ request }, 'performance')
-    );
-  },
-});
+const server = () => {
+  createServer({
+    routes() {
+      this.timing = 1000;
+      this.urlPrefix = 'http://localhost:3000/';
+      this.logging = false;
+      this.get('/user/:id/', (schema, request) => get({ request }, 'user'));
+      this.get('/user/:id/activity/', (schema, request) =>
+        get({ request }, 'activity')
+      );
+      this.get('/user/:id/average-sessions/', (schema, request) =>
+        get({ request }, 'average-sessions')
+      );
+      this.get('/user/:id/performance/', (schema, request) =>
+        get({ request }, 'performance')
+      );
+    },
+  });
+};
+
+/**
+ * Open the Mirage server
+ * If we set the const openMirageServer to "true" the mocker server starts
+ * Else the mocker server will not be launched in this case do not forget to launch the API server on port 3000
+ */
+const openMirageServer = true;
+if (openMirageServer) server();

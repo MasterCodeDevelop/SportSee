@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { formatDay } from './format';
+const URL_API = 'http://localhost:3000/';
 /**
  * Get general user information
  * @param { String } userId
@@ -7,11 +8,11 @@ import { formatDay } from './format';
  * @returns { ({id: number, userInfos: {firstName: string, lastName: string, age: number}, todayScore: number, keyData: {calorieCount: number, proteinCount: number, carbohydrateCount: number, lipidCount: number}} | Error) }
  */
 export function getUser({ userId, setUser }) {
-  axios(`/api/${userId}`)
+  axios(URL_API + 'user/' + userId)
     .then((res) => setUser(res.data.data))
     .catch((err) => {
       console.log(err);
-      setUser(undefined);
+      setUser(false);
     });
 }
 
@@ -22,7 +23,7 @@ export function getUser({ userId, setUser }) {
  * @returns { (Array.<{day: string, kilogram: number, calories: number}> | Error) }
  */
 export function getUserActivity({ userId, setUserActivity }) {
-  axios(`/api/${userId}/activity/`)
+  axios(URL_API + 'user/' + userId + '/activity/')
     .then((res) => {
       const sessions = res.data.data.sessions;
       setUserActivity(
@@ -31,7 +32,7 @@ export function getUserActivity({ userId, setUserActivity }) {
     })
     .catch((err) => {
       console.log(err);
-      setUserActivity(undefined);
+      setUserActivity(false);
     });
 }
 
@@ -42,11 +43,11 @@ export function getUserActivity({ userId, setUserActivity }) {
  * @returns { (userId: number, kind {number: string },  Array.<{value: number, kind: number}> | Error) }
  */
 export function getUserPerformance({ userId, setUserPerformance }) {
-  axios(`/api/${userId}/performance/`)
+  axios(URL_API + 'user/' + userId + '/performance/')
     .then((res) => setUserPerformance(res.data.data))
     .catch((err) => {
       console.log(err);
-      setUserPerformance(undefined);
+      setUserPerformance(false);
     });
 }
 /**
@@ -56,13 +57,13 @@ export function getUserPerformance({ userId, setUserPerformance }) {
  * @returns { (Array.<{day: number, sessionLength: number}> | Error) }
  */
 export function getUserSessions({ userId, setUserSessions }) {
-  axios(`/api/${userId}/average-sessions/`)
+  axios(URL_API + 'user/' + userId + '/average-sessions/')
     .then((res) => {
       const sessions = res.data.data.sessions;
       setUserSessions(sessions.map((e) => ({ ...e, day: formatDay(e.day) })));
     })
     .catch((err) => {
       console.log(err);
-      setUserSessions(undefined);
+      setUserSessions(false);
     });
 }
