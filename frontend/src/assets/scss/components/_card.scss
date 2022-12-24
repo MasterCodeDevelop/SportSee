@@ -1,0 +1,22 @@
+/*====================== card ======================*/
+.card {
+  width: 258px;
+  height: 124px;
+  background-color: #fbfbfb;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  font-style: normal;
+  h3 {
+    font-weight: 700;
+    color: #282d30;
+  }
+  p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #74798c;
+  }
+}

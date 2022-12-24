@@ -10,6 +10,7 @@ import Loading from '../components/Loading';
 import Sessions from '../components/Sessions';
 import Performance from '../components/Performance';
 import Score from '../components/Score';
+import DashboardInfo from '../components/DashboardInfo';
 
 export default function Dashboard() {
   const userId = '12',
@@ -43,6 +44,7 @@ export default function Dashboard() {
       <Sessions userSessions={userSessions} />
       <Performance userPerformance={userPerformance} />
       <Score score={user.todayScore || user.score} />
+      <DashboardInfo keyData={user.keyData} />
     </main>
   );
 }

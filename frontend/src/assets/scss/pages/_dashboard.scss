@@ -19,4 +19,11 @@
       padding: 41px 0 47px 0;
     }
   }
+  &-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 613px;
+  }
 }
