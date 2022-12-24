@@ -27,7 +27,7 @@ function get({ request }, path) {
 createServer({
   routes() {
     this.namespace = 'api';
-    this.timing = 3000; // default
+    this.timing = 3000;
     this.logging = false;
     this.get('/:id/', (schema, request) => get({ request }, 'user'));
     this.get('/:id/activity/', (schema, request) =>
