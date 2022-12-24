@@ -11,9 +11,9 @@ import Sessions from '../components/Sessions';
 import Performance from '../components/Performance';
 import Score from '../components/Score';
 import DashboardInfo from '../components/DashboardInfo';
-
+import ChangeUser from '../components/ChangeUser';
 export default function Dashboard() {
-  const userId = '12',
+  const [userId, setUserId] = useState(12),
     [user, setUser] = useState(null),
     [userPerformance, setUserPerformance] = useState(null),
     [userSessions, setUserSessions] = useState(null),
@@ -45,6 +45,14 @@ export default function Dashboard() {
       <Performance userPerformance={userPerformance} />
       <Score score={user.todayScore || user.score} />
       <DashboardInfo keyData={user.keyData} />
+      <ChangeUser
+        userId={userId}
+        setUserId={setUserId}
+        setUser={setUser}
+        setUserPerformance={setUserPerformance}
+        setUserSessions={setUserSessions}
+        setUserActivity={setUserActivity}
+      />
     </main>
   );
 }
