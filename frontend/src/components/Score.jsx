@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 
 function Score({ score }) {
-  const data = [
-    { value: 1, fill: '#fff', cornerRadius: 0 },
-    { value: score, fill: '#FF0101', cornerRadius: 50 },
-  ];
+  const data = [{ value: score, fill: '#FF0101', cornerRadius: 50 }];
+  for (let i = 0; i < 10; i++) {
+    data.unshift({ value: 1, fill: '#fff', cornerRadius: 0 });
+  }
 
   return (
     <section className="score">
@@ -20,7 +20,12 @@ function Score({ score }) {
         </p>
       </div>
       <ResponsiveContainer width="100%" height="100%">
-        <RadialBarChart innerRadius={70} data={data} outerRadius="100%">
+        <RadialBarChart
+          barCategoryGap={0}
+          outerRadius="100%"
+          style={{ margin: 0 }}
+          data={data}
+        >
           <RadialBar dataKey="value" />
         </RadialBarChart>
       </ResponsiveContainer>
