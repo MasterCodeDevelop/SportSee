@@ -44,7 +44,14 @@ export function getUserActivity({ userId, setUserActivity }) {
  */
 export function getUserPerformance({ userId, setUserPerformance }) {
   axios(URL_API + 'user/' + userId + '/performance/')
-    .then((res) => setUserPerformance(res.data.data))
+    .then((res) => {
+      const DATA = res.data.data;
+      const data = DATA.data.map((e) => ({
+        ...e,
+        kind: DATA.kind[e.kind],
+      }));
+      setUserPerformance(data);
+    })
     .catch((err) => {
       console.log(err);
       setUserPerformance(false);
