@@ -1,23 +1,38 @@
-# Getting Started with Create React App
+# SportSee [P12] Frontend
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## How to launch the application locally?
 
-In the project directory, you can run:
+### Step 1 - Requirements:
+- Install nodeJS and npm [see](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+- Clone this repo: `https://github.com/MasterCodeDevelop/MohamedAliElhamech_P12_20122022/tree/master/frontend`.
 
-### `npm start`
+### étape 2 - Lancer le frontend :
+- Open your terminal
+- Go to the folder you cloned
+- Install node_modules packages with command: ` npm install` ou ` npm i`.
+- Launch the application with the command: ` npm start`.
+- Open [http://localhost:8081](http://localhost:8081) to see the app in your browser.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How to launch the API?
+## How to launch the API locally?
+You can launch the API two ways
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### API server (backend)
+If you would like to start the server with the JS node follow the [API](https://github.com/MasterCodeDevelop/MohamedAliElhamech_P12_20122022/tree/master/api) folder.
+Then we need to shut down the Mock server.
+So you can go there in the file `./src/api/mock/index.js`,
+at the end of the file code. More precisely on `line 52` you can choose to launch the server with mirajJS, by giving the value of `openMirageServer` to `false`.
+The value of the `openMirageServer` constant is by default `true`.
+Be careful to launch the server on port `3000` !
 
-### `npm test`
+### Frontend Server with mirageJS
+If you want to launch the server with mirageJS.
+So you can go there in the file `./src/api/mock/index.js`,
+at the end of the file code. More precisely on `line 52` you can choose to launch the server with mirajJS, by giving the value of `openMirageServer` to `true`.
+The value of the `openMirageServer` constant is by default `true`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
