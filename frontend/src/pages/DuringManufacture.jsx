@@ -8,7 +8,7 @@ function DuringManufacture({ page, message }) {
     <main className="error-page">
       <h1>{page}</h1>
       <img src={clockSVG} alt="clock animation" />
-      <p>{message} est en cours de fabrication</p>
+      <p>{message} est en cours de construction !</p>
       <Link to="/profile">Aller sur la page de profil</Link>
     </main>
   );
