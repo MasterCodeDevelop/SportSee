@@ -45,6 +45,3 @@ If you want to launch the server with mirageJS, you can view the instructions on
 - [JSDoc](https://www.npmjs.com/package/jsdoc)
 - [ESLint](https://eslint.org)
 - [Prettier](https://prettier.io)
-
-## 💻 Website Demo
-[SportSee](https://mastercodedevelop.github.io/MohamedAliElhamech_P12_20122022/)
